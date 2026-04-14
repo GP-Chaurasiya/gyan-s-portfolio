@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "DM Sans", sans-serif;
+    --font-body: "Figtree", sans-serif;
+    --font-mono: "Geist Mono", monospace;
+    --radius: 0.5rem;
+
+    --background: 0.99 0 0;
+    --foreground: 0.18 0 0;
+    --card: 1.0 0 0;
+    --card-foreground: 0.18 0 0;
+    --popover: 1.0 0 0;
+    --popover-foreground: 0.18 0 0;
+
+    --primary: 0.55 0.18 255;
+    --primary-foreground: 0.98 0 0;
+
+    --secondary: 0.85 0.08 260;
+    --secondary-foreground: 0.18 0 0;
+    --muted: 0.95 0.01 260;
+    --muted-foreground: 0.5 0.03 260;
+
+    --accent: 0.92 0.05 260;
+    --accent-foreground: 0.35 0.15 255;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.93 0.02 260;
+    --input: 0.96 0.01 260;
+    --ring: 0.55 0.18 255;
+
+    --chart-1: 0.55 0.18 255;
+    --chart-2: 0.65 0.14 240;
+    --chart-3: 0.75 0.1 250;
+    --chart-4: 0.6 0.14 230;
+    --chart-5: 0.7 0.12 265;
+
+    --sidebar: 0.98 0 0;
+    --sidebar-foreground: 0.18 0 0;
+    --sidebar-primary: 0.55 0.18 255;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.92 0 0;
+    --sidebar-accent-foreground: 0.18 0 0;
+    --sidebar-border: 0.93 0.02 260;
+    --sidebar-ring: 0.55 0.18 255;
+
+    --gradient-primary: linear-gradient(
+      135deg,
+      oklch(0.55 0.18 255),
+      oklch(0.6 0.16 240)
+    );
+    --gradient-hero: linear-gradient(
+      135deg,
+      oklch(0.55 0.18 255 / 0.06),
+      oklch(0.75 0.1 250 / 0.12)
+    );
+    --shadow-subtle: 0 1px 3px 0 oklch(0.55 0.18 255 / 0.08);
+  }
+
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/assets/fonts/DMSans.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("/assets/fonts/Figtree.woff2") format("woff2");
+  font-weight: 400 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/assets/fonts/GeistMono.woff2") format("woff2");
+  font-weight: 400 600;
+  font-display: swap;
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .card-elevated {
+    @apply shadow-elevated border border-border bg-card;
+  }
+
+  .card-accent-bar {
+    border-left: 4px solid oklch(var(--primary));
+  }
+
+  .scroll-smooth-container {
+    scroll-behavior: smooth;
+  }
+
+  .hero-gradient-accent {
+    position: relative;
+    background: var(--gradient-hero);
+  }
+
+  .hero-gradient-accent::before {
+    content: "";
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 500px;
+    height: 500px;
+    background: var(--gradient-primary);
+    opacity: 0.08;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .section-alt {
+    @apply bg-muted/40;
+  }
+
+  .nav-link-active {
+    @apply text-primary font-semibold;
+  }
+
+  .skill-pill {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20;
+  }
+
+  .section-heading {
+    @apply font-display text-3xl font-bold text-foreground;
+  }
+
+  .section-subheading {
+    @apply text-muted-foreground text-lg mt-2;
+  }
+
+  .shadow-subtle {
+    box-shadow: var(--shadow-subtle);
+  }
+
+  .hero-blob-primary {
+    background: oklch(var(--primary));
+  }
+
+  .hero-blob-secondary {
+    background: oklch(0.6 0.16 240);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "overview": "Personal portfolio website for Gyan Prakash Chaurasiya, a BCA (Hons.) student, web developer, and digital marketing learner, showcasing skills, projects, education, experience, and certificates.",
+  "features": [
+    "Hero section with profile photo and social links",
+    "Education timeline",
+    "Technical skills showcase",
+    "Project cards with live links",
+    "Experience section",
+    "Certificates and achievements gallery",
+    "Hobbies section",
+    "Contact footer"
+  ],
+  "category": "portfolio",
+  "tags": [
+    "portfolio",
+    "personal",
+    "web-developer",
+    "resume",
+    "bca"
+  ],
+  "last_updated": "2026-04-14T11:58:40.461Z"
+}
